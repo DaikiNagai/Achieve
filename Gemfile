@@ -70,3 +70,5 @@ gem 'twitter-bootstrap-rails', '3.2.2'
 
 
 gem 'jquery-rails'
+
+gem 'rails_12factor', group: :production
