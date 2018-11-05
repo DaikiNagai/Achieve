@@ -36,6 +36,13 @@
                   <li><%= link_to "ブログ", blogs_path %></li>
                 </ul>
               </li>
+              <% if user_signed_in? %>
+                <li><%= link_to 'Mypage', edit_user_registration_path %></li>
+                <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Login', new_user_session_path %></li>
+                <li><%= link_to 'SignUp', new_user_registration_path %></li>
+              <% end %>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
