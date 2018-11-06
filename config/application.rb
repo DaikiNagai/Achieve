@@ -19,7 +19,5 @@ module Achieve
     # the framework and any gems in your application.
     config.i18n.default_locale = :ja
 
-    config.web_console.whitelisted_ips = '111.239.157.2'
-
   end
 end
