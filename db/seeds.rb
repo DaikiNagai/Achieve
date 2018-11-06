@@ -6,19 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-#100.times do |n|
-#  email = Faker::Internet.email
-#  password = "password"
-#  User.create!(email: email,
-#               password: password,
-#               password_confirmation: password,
-#               )
-#end
 100.times do |n|
-  title =  Faker::Pokemon.name
-  content = Faker::Lorem.paragraph
-  id = rand(1..100)
-  Blog.create!(title: title,
-               content: content,
-               user_id: id)
+  email = Faker::Internet.email
+  password = "password"
+  User.create!(email: email,
+               password: password,
+               password_confirmation: password)
 end
+
+#100.times do |n|
+#  title =  Faker::Pokemon.name
+#  content = Faker::Lorem.paragraph
+#  id = rand(1..100)
+#  Blog.create!(title: title,
+#               content: content,
+#               user_id: id)
+#end
