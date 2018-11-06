@@ -12,13 +12,10 @@
   User.create!(email: email,
                password: password,
                password_confirmation: password)
+  title =  Faker::Pokemon.name
+  content = Faker::Lorem.paragraph
+  id = rand(1..100)
+  Blog.create!(title: title,
+               content: content,
+               user_id: id)
 end
-
-#100.times do |n|
-#  title =  Faker::Pokemon.name
-#  content = Faker::Lorem.paragraph
-#  id = rand(1..100)
-#  Blog.create!(title: title,
-#               content: content,
-#               user_id: id)
-#end
