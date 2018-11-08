@@ -90,3 +90,5 @@ gem 'pry-rails'
 gem 'better_errors'
 
 gem 'activeresource'
+
+gem 'omniauth'
