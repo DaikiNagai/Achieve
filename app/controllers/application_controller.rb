@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
     add_flash_types :success
-    
+
     protect_from_forgery with: :exception
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
-    PERMISSIBLE_ATTRIBUTES = %i(name)
+    PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cathe)
 
     protected
         def configure_permitted_parameters
