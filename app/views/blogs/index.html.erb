@@ -5,23 +5,23 @@
 <div class="container">
     <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
         <p><%= notice %></p>
-        
+
         <h1>ブログ一覧</h1>
             <%= link_to "ブログを作成する", new_blog_path,class:'btn btn-default' %>
         <% @blogs.each do |blog| %>
         <% user = User.find(blog.user_id) %>
         <div class="row">
-            
-            <h4><strong>タイトル:<%= blog.title %></strong></h4>
-            <p>本文:<%= blog.content %></p>
-            <br>
-            <p>ユーザ名:<%= user.email %></p>
-            <%= link_to "ブログを編集する", edit_blog_path(blog.id),class: 'btn btn-sm btn-success' %>
-            <%= link_to "ブログを削除する", blog_path(blog.id), method: :delete, data:{confirm: '本当に削除していいですか？'}, class: 'btn btn-sm btn-danger' %>
+          <%= profile_img(user) if profile_img(user) %>
+          <p>ユーザ名:<%= user.email %></p>
+          <h4><strong>タイトル:<%= blog.title %></strong></h4>
+          <p>本文:<%= blog.content %></p>
+          <br>
+          <%= link_to "ブログを編集する", edit_blog_path(blog.id),class: 'btn btn-sm btn-success' %>
+          <%= link_to "ブログを削除する", blog_path(blog.id), method: :delete, data:{confirm: '本当に削除していいですか？'}, class: 'btn btn-sm btn-danger' %>
         </div>
         <% end %>
-    
-        
+
+
         <%= link_to "お問い合わせ", new_contact_path %>
     </div>
 </div>
