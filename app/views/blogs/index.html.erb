@@ -10,9 +10,14 @@
             <%= link_to "ブログを作成する", new_blog_path,class:'btn btn-default' %>
         <% @blogs.each do |blog| %>
         <% user = User.find(blog.user_id) %>
+        <% if user.name? %>
+          <% name = user.name %>
+        <% else %>
+          <% name = user.email %>
+        <% end %>
         <div class="row">
           <%= profile_img(user) if profile_img(user) %>
-          <p>ユーザ名:<%= user.email %></p>
+          <p>ユーザ名:<%= name %></p>
           <h4><strong>タイトル:<%= blog.title %></strong></h4>
           <p>本文:<%= blog.content %></p>
           <br>
