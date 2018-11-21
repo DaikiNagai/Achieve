@@ -9,10 +9,9 @@ Rails.application.routes.draw do
   #get 'contacts/create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
-      collection do
-        post :confirm
-      end
+    resources :blogs do
+      post :confirm, on: :collection
+      resources :comments
     end
     #get 'blogs' => 'blogs#index'
 
