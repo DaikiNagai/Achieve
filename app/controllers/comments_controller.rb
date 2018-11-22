@@ -26,6 +26,16 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @comment.update(comment_params)
+    @blog = @comment.blog
+    respond_to do |format|
+      if @comment.save
+        format.html {redirect_to blog_path(@blog), notice: 'コメントを編集しました。'}
+        format.js {render :index}
+      else
+        format.html {render :new}
+      end
+    end
   end
 
   private
