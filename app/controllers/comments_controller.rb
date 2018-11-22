@@ -1,18 +1,39 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:destroy, :edit, :update]
   def create
       @comment = current_user.comments.build(comment_params)
       @blog = @comment.blog
       respond_to do |format|
         if @comment.save
           format.html {redirect_to blog_path(@blog), notice: 'コメントを投稿しました。'}
+          format.js {render :index}
         else
           format.html {render :new}
         end
       end
   end
 
+  def destroy
+    @blog = @comment.blog
+    @comment.destroy
+    respond_to do  |format|
+      format.html {redirect_to blog_path(@blog), notice: 'コメントを削除しました。'}
+      format.js {render :index}
+    end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:blog_id, :content)
+    end
+
+    def set_comment
+      @comment = Comment.find(params[:id])
     end
 end
