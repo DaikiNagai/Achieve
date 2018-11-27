@@ -105,3 +105,5 @@ gem 'mini_magick'
 gem 'font-awesome-rails'
 
 gem 'pusher'
+
+gem 'fog'
