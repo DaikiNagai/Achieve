@@ -20,6 +20,8 @@ module Achieve
     config.i18n.default_locale = :ja
 
     config.generators do |g|
+      g.assets false,
+      g.helper false,
       g.test_framework :rspec,
         fixtures: true,
         view_specs: false,
